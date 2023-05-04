@@ -37,7 +37,7 @@ public class Customer
             Rental each = (Rental) enum_rentals.nextElement();
 
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + "\t" + each.getDaysRented() + "\t" + each.movie.getCharge(each.getDaysRented()) + "\n";
+            result += "\t" + each.getMovie().getTitle() + "\t" + "\t" + each.getDaysRented() + "\t" + each.movie._price.getCharge(each.getDaysRented()) + "\n";
         }
         //add footer lines
         result += "Amount owed is " + getTotalCharge() + "\n";
@@ -55,7 +55,7 @@ public class Customer
             Rental each = (Rental) rentals.nextElement();
 
             //show figures for each rental
-            result += each.getMovie().getTitle() + ": " + each.movie.getCharge(each.getDaysRented()) + "<BR>\n";
+            result += each.getMovie().getTitle() + ": " + each.movie._price.getCharge(each.getDaysRented()) + "<BR>\n";
         }
 
         //add footer lines
@@ -73,7 +73,7 @@ public class Customer
         while (rentals.hasMoreElements())
         {
             Rental each = (Rental) rentals.nextElement();
-            result += each.movie.getCharge(each.getDaysRented());
+            result += each.movie._price.getCharge(each.getDaysRented());
         }
         return result;
     }
@@ -85,7 +85,7 @@ public class Customer
         while (rentals.hasMoreElements())
         {
             Rental each = (Rental) rentals.nextElement();
-            result += each.movie.getFrequentRenterPoints(each.getDaysRented());
+            result += each.movie._price.getFrequentRenterPoints(each.getDaysRented());
         }
         return result;
     }
